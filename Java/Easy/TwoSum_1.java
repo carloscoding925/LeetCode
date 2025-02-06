@@ -1,30 +1,48 @@
-public class TwoSum_1{
-    static int[] twoSum(int[] nums, int target) {
-        int[] indices = new int[2];
+import java.util.HashMap;
+import java.util.Map;
 
-        for (int i = 0; i < nums.length; i++) {
-            int currentNumber = nums[i];
-            int complement = target - currentNumber;
+public class TwoSum_1 {
+    // Brute Force Method
+    static int[] solutionOne(int[] nums, int target) {
+        int length = nums.length;
 
-            for (int j = i + 1; j < nums.length; j++) {
-                if (nums[j] == complement) {
-                    indices[0] = i;
-                    indices[1] = j;
-                    return indices;
+        for (int i = 0; i < length; i++) {
+            for (int j = 0; j < length; j++) {
+                if(i == j) {
+                    continue;
+                }
+                else if (nums[i] + nums [j] == target) {
+                    return new int[] {i, j};
                 }
             }
         }
 
-        return indices;
+        return new int[] {0, 0};
     }
 
+    // Hashmap Method
+    static int[] solutionTwo(int[] nums, int target) {
+        Map<Integer, Integer> numsMap = new HashMap<>();
+        int length = nums.length;
+
+        for (int i = 0; i < length; i++){
+            int complement = target - nums[i];
+            if (numsMap.containsKey(complement)) {
+                return new int[] {numsMap.get(complement), i};
+            }
+            else {
+                numsMap.put(nums[i], i);
+            }
+        }
+
+        return new int[] {0, 0};
+    }
     public static void main(String[] args) {
         System.out.println("#1 - Two Sum - Easy");
+        int[] nums = {2, 7, 11, 15};
+        int target = 9;
 
-        int[] nums = {3,3};
-        int target = 6;
-        int[] result = twoSum(nums, target);
-
-        System.out.println("Indices: " + result[0] + ", " + result[1]);
+        int[] result = solutionTwo(nums, target);
+        System.out.println("Result: " + result[0] + ", " + result[1]);
     }
 }
