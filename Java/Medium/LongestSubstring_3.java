@@ -1,5 +1,5 @@
 public class LongestSubstring_3 {
-    static int solutionOne(String s) {
+    private static int solutionOne(String s) {
         
         return 0;
     }

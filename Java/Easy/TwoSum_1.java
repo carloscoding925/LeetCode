@@ -3,7 +3,7 @@ import java.util.Map;
 
 public class TwoSum_1 {
     // Brute Force Method
-    static int[] solutionOne(int[] nums, int target) {
+    private static int[] solutionOne(int[] nums, int target) {
         int length = nums.length;
 
         for (int i = 0; i < length; i++) {
@@ -21,7 +21,7 @@ public class TwoSum_1 {
     }
 
     // Hashmap Method
-    static int[] solutionTwo(int[] nums, int target) {
+    private static int[] solutionTwo(int[] nums, int target) {
         Map<Integer, Integer> numsMap = new HashMap<>();
         int length = nums.length;
 
@@ -42,7 +42,10 @@ public class TwoSum_1 {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        int[] result = solutionTwo(nums, target);
-        System.out.println("Result: " + result[0] + ", " + result[1]);
+        int[] resultOne = solutionOne(nums, target);
+        int[] resultTwo = solutionTwo(nums, target);
+
+        System.out.println("Brute Force Result: " + resultOne[0] + ", " + resultOne[1]);
+        System.out.println("Hashmap Result: " + resultTwo[0] + ", " + resultTwo[1]);
     }
 }

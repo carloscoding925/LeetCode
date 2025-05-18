@@ -1,5 +1,5 @@
 public class PalindromeNum_9 {
-    static boolean isPalindrome(int x) {
+    private static boolean isPalindrome(int x) {
         String integerString = Integer.toString(x);
         int length = integerString.length();
         int midPoint = length / 2;

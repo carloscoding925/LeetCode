@@ -8,7 +8,7 @@ public class AddTwoNum_2 {
         ListNode(int val, ListNode next) { this.val = val; this.next = next; }
     }
 
-    static ListNode solutionOne(ListNode l1, ListNode l2) {
+    private static ListNode solutionOne(ListNode l1, ListNode l2) {
         ListNode head = new ListNode();
         ListNode tail = head;
         int carry = 0;
