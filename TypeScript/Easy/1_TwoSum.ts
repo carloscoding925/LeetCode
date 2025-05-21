@@ -1,12 +1,26 @@
-function twoSum(nums: Number[], target: Number): Number[] {
+function solution(nums: number[], target: number): number[] {
+    let indices: number[] = [0, 0];
+    const complementMap: Map<number, number> = new Map<number, number>();
 
+    for (let i: number = 0; i < nums.length; i++) {
+        let complement: number = target - nums[i];
+        if (complementMap.has(complement)) {
+            indices[0] = complementMap.get(complement) ?? 0;
+            indices[1] = i;
+            return indices;
+        }
+        else {
+            complementMap.set(nums[i], i);
+        }
+    }
 
-    return [1, 2];
+    return indices;
 }
 
-let numbers: Number[] = [2, 7, 11, 15];
-let target: Number = 9;
-
 console.log("#1 - Two Sum - Easy");
-let result = twoSum(numbers, target);
-console.log(result[0] + " " + result[1]);
+
+const nums: number[] = [3, 2, 4];
+const target: number = 6;
+
+let result: number[] = solution(nums, target);
+console.log("Result: [" + result[0] + "], [" + result[1] + "]");

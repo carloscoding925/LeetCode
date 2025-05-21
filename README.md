@@ -11,4 +11,6 @@ I plan on writing solutions in **C++**, **Java**, **TypeScript**, and **C#**. <b
 
 ### TypeScript
 - Navigate to file folder
-- `tsc {filename} --outDir ../JavaScript-Files`
+- `tsc`
+- `node ../JavaScript-Files/{filename}.js`
+- Navigate to
