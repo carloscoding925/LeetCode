@@ -4,8 +4,8 @@ public class _2_AddTwoNums {
     public static void main(String[] args) {
         System.out.println("#2 - Add Two Numbers - Medium");
 
-        ListNode l1 = new ListNode(2, new ListNode(4, new ListNode(3)));
-        ListNode l2 = new ListNode(5, new ListNode(6, new ListNode(4)));
+        ListNode l1 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9, new ListNode (9, new ListNode(9)))))));
+        ListNode l2 = new ListNode(9, new ListNode(9, new ListNode(9, new ListNode(9))));
 
         ListNode result = addTwoNumbers(l1, l2);
 
@@ -31,7 +31,7 @@ public class _2_AddTwoNums {
         ListNode head = result;
         int carry = 0;
 
-        while(l1 != null || l2 != null) {
+        while(l1 != null || l2 != null || carry != 0) {
             int firstValue = l1 != null ? l1.val : 0;
             int secondValue = l2 != null ? l2.val : 0;
 
@@ -44,7 +44,7 @@ public class _2_AddTwoNums {
             l1 = l1 != null ? l1.next : null;
             l2 = l2 != null ? l2.next : null;
 
-            if (l1 == null && l2 == null) {
+            if (l1 == null && l2 == null && carry == 0) {
                 continue;
             }
 
