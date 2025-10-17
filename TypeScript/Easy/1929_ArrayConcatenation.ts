@@ -15,7 +15,8 @@ function getConcatenation(nums: number[]): number[] {
     // return [...nums, ...nums];
 }
 
+console.log("#1929 - Concatenation of Array - Easy");
+
 let testArray: number[] = [1, 2, 3];
 let result = getConcatenation(testArray);
-console.log("#1929 - Concatenation of Array - Easy");
 console.log(result);

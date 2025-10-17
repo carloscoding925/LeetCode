@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "CommonJS",
     "lib": ["ESNext", "DOM"],
     "outDir": "./dist",
     "rootDir": "./",
@@ -9,7 +9,8 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "moduleResolution": "node"
+    "moduleResolution": "node",
+    "moduleDetection": "force"
   },
   "include": ["**/*.ts"],
   "exclude": ["node_modules", "dist"]
