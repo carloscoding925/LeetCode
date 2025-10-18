@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class _3_LongestSubstring {
     public static void main(String[] args) {
-        System.out.println("#3 - Longest Substrings Without Repeating Characters");
+        System.out.println("#3 - Longest Substrings Without Repeating Characters - Medium");
 
         String input = "abcabcbb";
         int longestSubstring = lengthOfLongestSubstring(input);
