@@ -7,6 +7,7 @@ public class _14_LongestCommonPrefix {
         String[] stringArray = {"flower", "flow", "flight"};
         String lcp = longestCommonPrefix(stringArray);
         System.out.println("Longest Common Prefix is: " + lcp);
+        lcp = optimizedSolution(stringArray);
 
         return;
     }
@@ -38,5 +39,23 @@ public class _14_LongestCommonPrefix {
         }
 
         return lcp;
+    }
+
+    private static String optimizedSolution(String[] strs) {
+        if (strs.length == 0) {
+            return "";
+        }
+
+        String prefix = strs[0];
+        for (int i = 1; i < strs.length; i++) {
+            while (!strs[i].startsWith(prefix)) {
+                prefix = prefix.substring(0, prefix.length() - 1);
+                if (prefix.isEmpty()) {
+                    return "";
+                }
+            }
+        }
+
+        return prefix;
     }
 }
