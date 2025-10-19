@@ -67,7 +67,12 @@ public class _49_GroupAnagrams {
                     j++;
                 }
 
-                if (copyMap.isEmpty()) {
+                if (copyMap.isEmpty() && nextString.length() != 0) {
+                    isAnagram = true;
+                    anagramList.get(k).addLast(nextString);
+                }
+
+                if (copyMap.isEmpty() && existingAnagram.length() == 0) {
                     isAnagram = true;
                     anagramList.get(k).addLast(nextString);
                 }
