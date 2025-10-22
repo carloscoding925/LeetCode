@@ -17,7 +17,7 @@ public class _705_DesignHashSet {
         System.out.println(myHashSet.contains(2));
 
         System.out.println("\n--- Testing Hash Table with Chaining ---");
-        MyHashSetChaining hashSetChaining = new MyHashSetChaining();
+        HashTableSet hashSetChaining = new HashTableSet();
         hashSetChaining.add(1);
         hashSetChaining.add(2);
         System.out.println(hashSetChaining.contains(1));
@@ -55,20 +55,18 @@ public class _705_DesignHashSet {
         }
     }
 
-    // Hash table with chaining implementation
-    static class MyHashSetChaining {
-        private static final int SIZE = 1000; // Number of buckets
+    // Hash Table with Linked List (Chaining) Implementation
+    static class HashTableSet {
+        private static final int SIZE = 1000;
         private LinkedList<Integer>[] buckets;
 
-        public MyHashSetChaining() {
+        public HashTableSet() {
             buckets = new LinkedList[SIZE];
-            // Initialize each bucket as an empty LinkedList
             for (int i = 0; i < SIZE; i++) {
                 buckets[i] = new LinkedList<>();
             }
         }
 
-        // Hash function to map key to bucket index
         private int hash(int key) {
             return key % SIZE;
         }
@@ -77,7 +75,6 @@ public class _705_DesignHashSet {
             int bucketIndex = hash(key);
             LinkedList<Integer> bucket = buckets[bucketIndex];
 
-            // Only add if the key doesn't already exist
             if (!bucket.contains(key)) {
                 bucket.add(key);
             }
@@ -87,7 +84,6 @@ public class _705_DesignHashSet {
             int bucketIndex = hash(key);
             LinkedList<Integer> bucket = buckets[bucketIndex];
 
-            // Remove the key if it exists (removes first occurrence)
             bucket.remove(Integer.valueOf(key));
         }
 
