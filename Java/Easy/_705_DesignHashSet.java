@@ -61,9 +61,9 @@ public class _705_DesignHashSet {
         private LinkedList<Integer>[] buckets;
 
         public HashTableSet() {
-            buckets = new LinkedList[SIZE];
+            this.buckets = new LinkedList[SIZE];
             for (int i = 0; i < SIZE; i++) {
-                buckets[i] = new LinkedList<>();
+                this.buckets[i] = new LinkedList<>();
             }
         }
 
@@ -73,7 +73,7 @@ public class _705_DesignHashSet {
 
         public void add(int key) {
             int bucketIndex = hash(key);
-            LinkedList<Integer> bucket = buckets[bucketIndex];
+            LinkedList<Integer> bucket = this.buckets[bucketIndex];
 
             if (!bucket.contains(key)) {
                 bucket.add(key);
@@ -82,14 +82,14 @@ public class _705_DesignHashSet {
 
         public void remove(int key) {
             int bucketIndex = hash(key);
-            LinkedList<Integer> bucket = buckets[bucketIndex];
+            LinkedList<Integer> bucket = this.buckets[bucketIndex];
 
             bucket.remove(Integer.valueOf(key));
         }
 
         public boolean contains(int key) {
             int bucketIndex = hash(key);
-            LinkedList<Integer> bucket = buckets[bucketIndex];
+            LinkedList<Integer> bucket = this.buckets[bucketIndex];
 
             return bucket.contains(key);
         }
