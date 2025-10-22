@@ -47,11 +47,7 @@ public class _705_DesignHashSet {
         }
 
         public boolean contains(int key) {
-            if (this.lookupArray[key] == 1) {
-                return true;
-            }
-
-            return false;
+            return this.lookupArray[key] == 1;
         }
     }
 
