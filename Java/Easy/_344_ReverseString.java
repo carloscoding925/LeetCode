@@ -19,18 +19,18 @@ public class _344_ReverseString {
     }
 
     private static void reverseString(char[] s) {
-        int lp = 0;
-        int rp = s.length - 1;
+        int left = 0;
+        int right = s.length - 1;
 
         for (int i = 0; i < s.length / 2; i++) {
-            char lpChar = s[lp];
-            char rpChar = s[rp];
+            char lpChar = s[left];
+            char rpChar = s[right];
 
-            s[lp] = rpChar;
-            s[rp] = lpChar;
+            s[left] = rpChar;
+            s[right] = lpChar;
 
-            lp++;
-            rp--;
+            left++;
+            right--;
         }
     }
 
