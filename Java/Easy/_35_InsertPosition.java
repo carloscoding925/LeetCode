@@ -1,22 +1,24 @@
 package Java.Easy;
 
-public class _704_BinarySearch {
+public class _35_InsertPosition {
     public static void main(String[] args) {
-        System.out.println("#704 - Binary Search - Easy");
+        System.out.println("#35 - Search Insert Position - Easy");
 
-        int[] input = {-1, 0, 3, 5, 9, 12};
-        int target = 9;
+        int[] input = {1, 3, 5, 6};
+        int target = 3;
+        int result = searchInsert(input, target);
 
-        System.out.println("Index of Target: " + search(input, target));
+        System.out.println("Result: " + result);
+
         return;
     }
 
-    private static int search(int[] nums, int target) {
+    private static int searchInsert(int[] nums, int target) {
         int leftPointer = 0;
         int rightPointer = nums.length - 1;
 
         while (leftPointer <= rightPointer) {
-            int mid = (rightPointer + leftPointer) / 2;
+            int mid = (leftPointer + rightPointer) / 2;
 
             if (nums[mid] == target) {
                 return mid;
@@ -29,8 +31,8 @@ public class _704_BinarySearch {
             if (nums[mid] > target) {
                 rightPointer = mid - 1;
             }
-        } 
+        }
 
-        return -1;
+        return leftPointer;
     }
 }
