@@ -17,7 +17,7 @@ public class _2_AddTwoNums {
         return;
     }
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
