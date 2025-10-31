@@ -18,7 +18,7 @@ public class _144_TreePreorderTraversal {
         return;
     }
 
-    public static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;

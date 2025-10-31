@@ -18,7 +18,7 @@ public class _145_TreePostorderTraversal {
         return;
     }
 
-    public static class TreeNode {
+    private static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
