@@ -2,7 +2,7 @@ package Java.Easy;
 
 public class _572_SubtreeOfTree {
     public static void main(String[] args) {
-        System.out.println("#572 - Subtree of Another Tree");
+        System.out.println("#572 - Subtree of Another Tree - Easy");
 
         TreeNode root = new TreeNode(3);
         root.left = new TreeNode(4);
