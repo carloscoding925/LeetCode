@@ -26,9 +26,9 @@ public class _128_LongestConsecSequence {
         }
 
         int maxLength = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if (!numSet.contains(nums[j] - 1)) {
-                int currentNum = nums[j];
+        for (int num : numSet) {
+            if (!numSet.contains(num - 1)) {
+                int currentNum = num;
                 int currentLength = 1;
 
                 while (numSet.contains(currentNum + 1)) {
