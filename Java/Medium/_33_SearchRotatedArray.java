@@ -4,8 +4,8 @@ public class _33_SearchRotatedArray {
     public static void main(String[] args) {
         System.out.println("#33 - Search In Rotated Sorted Array - Medium");
 
-        int[] input = {4, 5, 6, 7, 0, 1, 2, 3};
-        int target = 1;
+        int[] input = {4, 5, 6, 7, 0, 1, 2};
+        int target = 0;
         int index = search(input, target);
 
         System.out.println("Target: " + target + " found at index: " + index);
@@ -23,8 +23,7 @@ public class _33_SearchRotatedArray {
             if (nums[mid] == target) {
                 return mid;
             }
-            
-            if (nums[left] <= nums[mid]) {
+            else if (nums[left] <= nums[mid]) {
                 if (nums[left] <= target && target < nums[mid]) {
                     right = mid - 1;
                 }
