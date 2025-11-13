@@ -13,7 +13,9 @@ public class _70_ClimbingStairs {
     }
 
     private static int climbStairs(int n) {
-        if (n <= 2) return n;
+        if (n <= 2) {
+            return n;
+        }
 
         int prev2 = 1;
         int prev1 = 2;
