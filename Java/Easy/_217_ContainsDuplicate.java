@@ -1,3 +1,6 @@
+// Attempts (2)
+// Last Attempted - August 1st, 2026
+
 package Java.Easy;
 
 import java.util.HashSet;
@@ -7,23 +10,25 @@ public class _217_ContainsDuplicate {
     public static void main(String[] args) {
         System.out.println("#217 - Contains Duplicate - Easy");
 
-        int[] numsArray = {1, 2, 3, 1};
-        boolean isDistinct = containsDuplicate(numsArray);
-        System.out.println("Array Contains Duplicate? " + isDistinct);
+        int[] hasDupe = {1, 2, 3, 1};
+        int[] noDupe = {1, 2, 3, 4};
 
-        return;
+        boolean resultOne = containsDuplicate(hasDupe);
+        boolean resultTwo = containsDuplicate(noDupe);
+
+        System.out.println("First array has a duplicate: " + resultOne);
+        System.out.println("Second array has a duplicate: " + resultTwo);
     }
 
     private static boolean containsDuplicate(int[] nums) {
         Set<Integer> numsSet = new HashSet<>();
 
-        for (int i = 0; i < nums.length; i++) {
-            if (numsSet.contains(nums[i])) {
+        for (int num : nums) {
+            if (numsSet.contains(num)) {
                 return true;
             }
-            else {
-                numsSet.add(nums[i]);
-            }
+
+            numsSet.add(num);
         }
 
         return false;
