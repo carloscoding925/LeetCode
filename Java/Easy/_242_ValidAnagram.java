@@ -1,3 +1,6 @@
+// Attempts (2)
+// Last Attempted - August 2nd, 2026
+
 package Java.Easy;
 
 import java.util.HashMap;
@@ -7,49 +10,29 @@ public class _242_ValidAnagram {
     public static void main(String[] args) {
         System.out.println("#242 - Valid Anagram - Easy");
 
-        String stringOne = "anagram";
-        String stringTwo = "nagaram";
-        boolean areEqual = isAnagram(stringOne, stringTwo);
-        System.out.println("Strings are Anagrams: " + areEqual);
+        String inputOne = "anagram";
+        String inputTwo = "nagaram";
 
-        return;
+        boolean areTheyAnagrams = isAnagram(inputOne, inputTwo);
+
+        System.out.printf("Are %s and %s anagrams: %b", inputOne, inputTwo, areTheyAnagrams);
     }
 
     private static boolean isAnagram(String s, String t) {
-        Map<Character, Integer> stringOneMap = new HashMap<>();
-        Map<Character, Integer> stringTwoMap = new HashMap<>();
-
         if (s.length() != t.length()) {
             return false;
         }
 
+        Map<Character, Integer> stringMap = new HashMap<>();
+
         for (int i = 0; i < s.length(); i++) {
-            char nextChar = s.charAt(i);
-
-            if (stringOneMap.containsKey(nextChar)) {
-                stringOneMap.put(nextChar, stringOneMap.get(nextChar) + 1);
-            }
-            else {
-                stringOneMap.put(nextChar, 1);
-            }
+            stringMap.put(s.charAt(i), stringMap.getOrDefault(s.charAt(i), 0) + 1);
         }
 
-        for (int j = 0; j < t.length(); j++) {
-            char nextChar = t.charAt(j);
-
-            if (stringTwoMap.containsKey(nextChar)) {
-                stringTwoMap.put(nextChar, stringTwoMap.get(nextChar) + 1);
-            }
-            else {
-                stringTwoMap.put(nextChar, 1);
-            }
+        for (int i = 0; i < t.length(); i++) {
+            stringMap.put(t.charAt(i), stringMap.getOrDefault(t.charAt(i), 0) - 1);
         }
 
-        return stringOneMap.equals(stringTwoMap);
+        return stringMap.values().stream().allMatch(x -> x == 0);
     }
-    /*
-     * Alternatively, use one hashmap to add first strings characters,
-     * then remove second strings characters (and entry when count is 0)
-     * and if hashmap is empty, it is a anagram
-     */
 }
