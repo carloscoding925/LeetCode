@@ -1,5 +1,9 @@
+// Attempts (2)
+// Last Attempted - August 2nd, 2026
+
 package Java.Easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,31 +14,25 @@ public class _1_TwoSum {
         int[] nums = {2, 7, 11, 15};
         int target = 9;
 
-        int[] result = twoSum(nums, target);
+        int[] results = twoSum(nums, target);
 
-        if (result[0] == 0 && result[1] == 0) {
-            System.out.println("No solution found");
-            return;
-        }
-
-        System.out.println("Numbers that add up to: " + target + " found at indices: " + result[0] + " and " + result[1]);
-        return;
+        System.out.println("Target value: " + target + " can be formed from numbers at indices: " + Arrays.toString(results));
     }
 
     private static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> complementsMap = new HashMap<>();
 
         for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
+            Integer complement = complementsMap.get(target - nums[i]);
 
-            if (complementsMap.containsKey(complement)) {
-                return new int[] {complementsMap.get(complement), i};
+            if (complement != null) {
+                return new int[] {i, complement.intValue()};
             }
             else {
                 complementsMap.put(nums[i], i);
             }
         }
 
-        return new int[] {0, 0};
+        throw new IllegalStateException("The twoSum method should always return a solution");
     }
 }
